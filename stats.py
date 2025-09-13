@@ -12,3 +12,17 @@ def amount_of_chars(book_text):
             final_dict[char] += 1 
     return final_dict
     
+def sort_dicts(char_dict):
+    #make a new list
+    result = []
+    #go through dict and
+    for key in char_dict:
+        result.append({"char": key, "num": char_dict[key]})
+    result.sort(key=num_of_char, reverse=True)
+
+    return result
+    
+
+def num_of_char(item): 
+    return item["num"]
+    
