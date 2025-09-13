@@ -1,3 +1,5 @@
+import sys
+
 from stats import amount_of_words, amount_of_chars, sort_dicts
 def get_book_text(file_path):
     file_contents = ""
@@ -7,7 +9,10 @@ def get_book_text(file_path):
 
     
 def main():
-    book_text = get_book_text('books/frankenstein.txt')
+    if len(sys.argv) != 2:
+        print('Usage: python3 main.py <path_to_book>')
+        sys.exit(1)
+    book_text = get_book_text(sys.argv[1])
     word_amount = amount_of_words(book_text)
     char_dict = amount_of_chars(book_text)
     sorted_dicts = sort_dicts(char_dict)
